@@ -1,0 +1,453 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #4a2a3d;
+    background-color: #ffe4f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #d81b60;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#app {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+h2 {
+    color: #ec407a;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.input-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #fce4ec;
+}
+
+#addItemForm {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.autocomplete-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 150px;
+}
+
+#addItemForm input {
+    padding: 10px;
+    border: 1px solid #f8bbd0;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.autocomplete-wrapper input {
+    width: 100%;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #f8bbd0;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+}
+
+.autocomplete-item:hover {
+    background-color: #fff0f5;
+}
+
+#addItemForm button {
+    padding: 10px 20px;
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#addItemForm button:hover {
+    background-color: #d81b60;
+}
+
+.table-section {
+    margin-bottom: 30px;
+}
+
+#itemsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#itemsTable th {
+    background-color: #ec407a;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+#itemsTable td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #fce4ec;
+}
+
+#itemsTable tbody tr:hover {
+    background-color: #fff0f5;
+}
+
+#itemsTable th:nth-child(4),
+#itemsTable td:nth-child(4) {
+    text-align: right;
+}
+
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #ec407a;
+}
+
+.results-section {
+    background-color: #fce4ec;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.result-row:last-child {
+    margin-bottom: 0;
+    padding-top: 10px;
+    border-top: 2px solid #f8bbd0;
+    font-size: 1.3em;
+    color: #d81b60;
+}
+
+.result-row span {
+    font-weight: bold;
+    color: #ec407a;
+}
+
+.editable-cell {
+    cursor: text;
+    transition: background-color 0.2s;
+}
+
+.editable-cell:hover {
+    background-color: #fff0f5;
+}
+
+.editable-cell:focus {
+    outline: 2px solid #f06292;
+    background-color: #fff;
+}
+
+#divisor {
+    width: 70px;
+    padding: 0px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    text-align: end;
+    color: #ec407a;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+            appearance: textfield;
+}
+
+#totalCarbs {
+    margin-left: auto;
+    margin-right: 1px;
+}
+
+/* Food Manager Styles */
+.food-manager-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #fce4ec;
+}
+
+.toggle-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.toggle-btn:hover {
+    background-color: #d81b60;
+}
+
+.toggle-btn.active {
+    background-color: #d81b60;
+}
+
+.food-manager-content {
+    margin-top: 20px;
+}
+
+.food-manager-content h2 {
+    color: #ec407a;
+    margin-bottom: 20px;
+}
+
+.food-manager-content h3 {
+    color: #d81b60;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.add-food-form {
+    background-color: #fff0f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+#addFoodForm {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#addFoodForm input {
+    padding: 10px;
+    border: 1px solid #f8bbd0;
+    border-radius: 4px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 150px;
+}
+
+#addFoodForm button {
+    padding: 10px 20px;
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#addFoodForm button:hover {
+    background-color: #d81b60;
+}
+
+.food-list {
+    background-color: #fce4ec;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.food-list-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#searchFood {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #f8bbd0;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 200px;
+}
+
+.export-btn,
+.import-btn {
+    padding: 10px 20px;
+    background-color: #ec407a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.export-btn:hover,
+.import-btn:hover {
+    background-color: #d81b60;
+}
+
+.reset-btn {
+    padding: 10px 20px;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.reset-btn:hover {
+    background-color: #ec407a;
+}
+
+#foodListContainer {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.food-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.food-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.food-name-edit {
+    flex: 2;
+    min-width: 150px;
+    padding: 8px;
+    border: 1px solid #f8bbd0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.food-carbs-edit {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #f8bbd0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.carbs-label {
+    color: #d81b60;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.food-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.save-food-btn,
+.delete-food-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.save-food-btn {
+    background-color: #ec407a;
+    color: white;
+}
+
+.save-food-btn:hover {
+    background-color: #d81b60;
+}
+
+.delete-food-btn {
+    background-color: #f06292;
+    color: white;
+}
+
+.delete-food-btn:hover {
+    background-color: #ec407a;
+}

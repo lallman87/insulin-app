@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Caculate Carbs</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Caculate Carbs</h1>
+        <div id="app">
+            <div class="input-section">
+                <h2>Add Item</h2>
+                <form id="addItemForm">
+                    <div class="autocomplete-wrapper">
+                        <input type="text" id="itemName" placeholder="Item" required autocomplete="off">
+                        <div id="autocomplete-dropdown" class="autocomplete-dropdown"></div>
+                    </div>
+                    <input type="number" id="itemGrams" placeholder="Grams" step="0.1" required>
+                    <input type="number" id="itemCarbs" placeholder="Carbs" step="0.1" required>
+                    <button type="submit">Add Item</button>
+                </form>
+            </div>
+
+            <div class="table-section">
+                <table id="itemsTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Grams</th>
+                            <th>Carbs</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="results-section">
+                <div class="result-row">
+                    <strong>Total Carbs:</strong>
+                    <span id="totalCarbs">0</span>
+                    <span>g</span>
+                </div>
+                <div class="result-row">
+                    <strong>Divide Amount:</strong>
+                    <input type="number" id="divisor" value="7.5" step="0.1" min="0.1">
+                </div>
+                <div class="result-row">
+                    <strong>Units:</strong>
+                    <span id="finalResult">0</span>
+                </div>
+            </div>
+
+            <div class="food-manager-section">
+                <button id="toggleFoodManager" class="toggle-btn">
+                    <i class="fas fa-utensils"></i> Manage Food List
+                </button>
+
+                <div id="foodManagerContent" class="food-manager-content" style="display: none;">
+                    <h2>Food Database</h2>
+
+                    <div class="add-food-form">
+                        <h3>Add New Food</h3>
+                        <form id="addFoodForm">
+                            <input type="text" id="newFoodName" placeholder="Food Name" required>
+                            <input type="number" id="newFoodCarbs" placeholder="Carbs per 100g" step="0.1" required>
+                            <button type="submit"><i class="fas fa-plus"></i> Add Food</button>
+                        </form>
+                    </div>
+
+                    <div class="food-list">
+                        <h3>Existing Foods</h3>
+                        <div class="food-list-controls">
+                            <input type="text" id="searchFood" placeholder="Search foods...">
+                            <button id="exportFoods" class="export-btn"><i class="fas fa-download"></i> Export</button>
+                            <button id="importFoods" class="import-btn"><i class="fas fa-upload"></i> Import</button>
+                            <input type="file" id="importFile" accept=".json" style="display: none;">
+                            <button id="resetFoods" class="reset-btn"><i class="fas fa-redo"></i> Reset to Default</button>
+                        </div>
+                        <div id="foodListContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

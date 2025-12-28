@@ -42,7 +42,7 @@ function populateAccordion(data) {
     const accordionItem = `
       <div class="accordion-item">
         <div class="accordion-header">
-          <button class="accordion-button ${index !== 0 ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${category}">
+          <button class="accordion-button fw-bold ${index !== 0 ? 'collapsed' : ''}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${category}">
             ${category.charAt(0).toUpperCase() + category.slice(1)}
           </button>
         </div>

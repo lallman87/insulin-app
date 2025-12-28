@@ -14,19 +14,6 @@ const categories = ["breakfast", "lunch", "dinner", "drinks", "snacks", "fruit",
 let selectedCarbs = 0;
 let insulinRatio = 7.5; // Default ratio
 
-// Function to update carb totals
-function updateCarbTotals() {
-  const totalCarbs = Array.from(document.querySelectorAll(".carb-button.active"))
-    .reduce((sum, btn) => sum + parseFloat($(btn).data("carbs")), 0);
-  
-  selectedCarbs = totalCarbs;
-  const insulinDecimal = totalCarbs / insulinRatio;
-  const insulin = Math.round(insulinDecimal);
-  
-  $("#totalCarbs").text(totalCarbs.toFixed(2));
-  $("#totalInsulin").text(insulin);
-}
-
 // Function to populate accordion with items
 function populateAccordion(data) {
   const $accordion = $("#categoryAccordion");
@@ -39,10 +26,17 @@ function populateAccordion(data) {
     const itemsHtml = items.length === 0 
       ? `<p class="mb-0">There are no ${category} items</p>`
       : items.map(item => `
-          <button class="btn carb-button" 
-                  data-carbs="${item.carbs}">
-            ${item.name} <span>${parseFloat(item.carbs)}</span>
-          </button>
+          <div class="carb-item">
+            <button class="btn carb-button" 
+                    data-carbs="${item.carbs}">
+              ${item.name} <span>${parseFloat(item.carbs)}</span>
+            </button>
+            <div class="qty-controls">
+              <button class="btn btn-sm qty-minus" disabled>−</button>
+              <input type="number" class="item-qty" value="1" min="1" readonly>
+              <button class="btn btn-sm qty-plus">+</button>
+            </div>
+          </div>
         `).join("");
 
     const accordionItem = `
@@ -63,12 +57,67 @@ function populateAccordion(data) {
     $accordion.append(accordionItem);
   });
 
-  // Attach click handlers to carb buttons
+  // Carb button click
   $(".carb-button").click(function(e) {
     e.preventDefault();
     $(this).toggleClass("active");
+    
+    // Toggle active class on qty-controls
+    $(this).closest(".carb-item").find(".qty-controls").toggleClass("active");
+    
+    // If deselecting, reset quantity to 1
+    if (!$(this).hasClass("active")) {
+      const $qtyInput = $(this).closest(".carb-item").find(".item-qty");
+      $qtyInput.val(1);
+      
+      // Disable minus button
+      $(this).closest(".carb-item").find(".qty-minus").prop("disabled", true);
+    }
+    
     updateCarbTotals();
   });
+
+  // Quantity minus button
+  $(".qty-minus").click(function(e) {
+    e.preventDefault();
+    const $input = $(this).siblings(".item-qty");
+    let qty = parseInt($input.val());
+    if (qty > 1) {
+      qty--;
+      $input.val(qty);
+      $(this).prop("disabled", qty === 1);
+      updateCarbTotals();
+    }
+  });
+
+  // Quantity plus button
+  $(".qty-plus").click(function(e) {
+    e.preventDefault();
+    const $input = $(this).siblings(".item-qty");
+    let qty = parseInt($input.val());
+    qty++;
+    $input.val(qty);
+    $(this).siblings(".qty-minus").prop("disabled", false);
+    updateCarbTotals();
+  });
+}
+
+// Function to update carb totals
+function updateCarbTotals() {
+  let totalCarbs = 0;
+
+  $(".carb-button.active").each(function() {
+    const carbs = parseFloat($(this).data("carbs"));
+    const qty = parseInt($(this).closest(".carb-item").find(".item-qty").val());
+    totalCarbs += carbs * qty;
+  });
+  
+  selectedCarbs = totalCarbs;
+  const insulinDecimal = totalCarbs / insulinRatio;
+  const insulin = Math.round(insulinDecimal);
+  
+  $("#totalCarbs").text(totalCarbs.toFixed(2));
+  $("#totalInsulin").text(insulin);
 }
 
 // Function to load items into dropdowns

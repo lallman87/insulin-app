@@ -73,6 +73,62 @@ h1 {
   text-align: center;
 }
 
+#categoryAccordion .accordion-item .accordion-body .carb-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .qty-controls {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .qty-controls.active {
+  display: flex;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .item-qty {
+  width: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #FFE6F4;
+  border-radius: 0px;
+  color: #9C9C9C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-minus,
+#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-plus {
+  background-color: #FFFFFF;
+  border: 2px solid #FFE6F4;
+  color: #9C9C9C;
+  font-size: 18px;
+  width: 32px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .25s ease;
+  border-radius: 0px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-minus:hover,
+#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-plus:hover {
+  background-color: #FFE6F4;
+}
+
+input[type='number']::-webkit-inner-spin-button, 
+input[type='number']::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #categoryAccordion .accordion-item .accordion-body .carb-button {
   background-color: #FFFFFF;
   transition: all .25s ease;
@@ -81,6 +137,8 @@ h1 {
   border: none;
   border-radius: 0px;
   margin-bottom: 4px;
+  width: auto;
+  flex-grow: 1;
 }
 
 #categoryAccordion .accordion-item .accordion-body .carb-button:last-of-type {

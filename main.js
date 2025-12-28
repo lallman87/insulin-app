@@ -29,7 +29,7 @@ function populateAccordion(data) {
           <div class="carb-item">
             <button class="btn carb-button" 
                     data-carbs="${item.carbs}">
-              ${item.name} <span>${parseFloat(item.carbs)}</span>
+              ${item.name} <span class="fw-bold">${parseFloat(item.carbs)}</span>
             </button>
             <div class="qty-controls">
               <button class="btn btn-sm qty-minus" disabled>−</button>

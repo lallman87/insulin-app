@@ -122,11 +122,6 @@ h1 a {
   border-radius: 0px;
 }
 
-#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-minus:hover,
-#categoryAccordion .accordion-item .accordion-body .carb-item .qty-controls .qty-plus:hover {
-  background-color: #FFE6F4;
-}
-
 input[type='number']::-webkit-inner-spin-button, 
 input[type='number']::-webkit-outer-spin-button { 
   -webkit-appearance: none;
@@ -149,7 +144,6 @@ input[type='number']::-webkit-outer-spin-button {
   margin-bottom: 0px;
 }
 
-#categoryAccordion .accordion-item .accordion-body .carb-button:hover,
 #categoryAccordion .accordion-item .accordion-body .carb-button.active {
   background-color: #FFE6F4;
 }
@@ -164,7 +158,6 @@ input[type='number']::-webkit-outer-spin-button {
   transition: all .25s ease;
 }
 
-.insulin-ratio-btn:hover,
 .insulin-ratio-btn.active {
   background-color: #FFE6F4;
 }
@@ -180,9 +173,6 @@ input[type='number']::-webkit-outer-spin-button {
   margin-top: 8px;
 }
 
-.insulin-reset-btn:hover {
-  background-color: #FFFFFF;
-}
 
 .action-btn {
   color: #9C9C9C;
@@ -190,10 +180,6 @@ input[type='number']::-webkit-outer-spin-button {
   border: 2px solid #FFE6F4;
   padding: 4px 8px;
   transition: all .25s ease;
-}
-
-.action-btn:hover {
-  background-color: #FFE6F4;
 }
 
 select {

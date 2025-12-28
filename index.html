@@ -1,99 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Caculate Carbs</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carb Counting</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Caculate Carbs</h1>
-        <div id="app">
-            <div class="input-section">
-                <h2>Add Item</h2>
-                <form id="addItemForm">
-                    <div class="autocomplete-wrapper">
-                        <input type="text" id="itemName" placeholder="Item" required autocomplete="off">
-                        <div id="autocomplete-dropdown" class="autocomplete-dropdown"></div>
-                    </div>
-                    <input type="number" id="itemGrams" placeholder="Grams" step="0.1" required>
-                    <input type="number" id="itemCarbs" placeholder="Carbs" step="0.1" required>
-                    <button type="submit">Add Item</button>
-                </form>
-            </div>
-
-            <div class="table-section">
-                <table id="itemsTable">
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>Grams</th>
-                            <th>Carbs</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="results-section">
-                <div class="result-row">
-                    <strong>Total Carbs:</strong>
-                    <span id="totalCarbs">0</span>
-                    <span>g</span>
-                </div>
-                <div class="result-row">
-                    <strong>Divide Amount:</strong>
-                    <input type="number" id="divisor" value="7.5" step="0.1" min="0.1">
-                </div>
-                <div class="result-row">
-                    <strong>Units:</strong>
-                    <span id="finalResult">0</span>
-                </div>
-            </div>
-
-            <div class="food-manager-section">
-                <button id="toggleFoodManager" class="toggle-btn">
-                    <i class="fas fa-utensils"></i> Manage Food List
-                </button>
-
-                <div id="foodManagerContent" class="food-manager-content" style="display: none;">
-                    <h2>Food Database</h2>
-
-                    <div class="add-food-form">
-                        <h3>Add New Food</h3>
-                        <form id="addFoodForm">
-                            <input type="text" id="newFoodName" placeholder="Food Name" required>
-                            <input type="number" id="newFoodCarbs" placeholder="Carbs per 100g" step="0.1" required>
-                            <button type="submit"><i class="fas fa-plus"></i> Add Food</button>
-                        </form>
-                    </div>
-
-                    <div class="food-list">
-                        <h3>Existing Foods</h3>
-                        <div class="food-list-controls">
-                            <input type="text" id="searchFood" placeholder="Search foods...">
-                            <button id="exportFoods" class="export-btn"><i class="fas fa-download"></i> Export</button>
-                            <button id="importFoods" class="import-btn"><i class="fas fa-upload"></i> Import</button>
-                            <input type="file" id="importFile" accept=".json" style="display: none;">
-                            <button id="resetFoods" class="reset-btn"><i class="fas fa-redo"></i> Reset to Default</button>
-                        </div>
-                        <div id="foodListContainer"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="d-flex align-items-center gap-2 justify-content-between">
+        <h1 class="mb-0">Carb Counting</h1>
+        <a href="actions.html" class="btn actions-btn"><i class="fas fa-plus"></i></a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/main.js"></script>
+    <div class="accordion mt-4" id="categoryAccordion"></div>
+
+    <div class="d-flex gap-2 text-center align-items-center justify-content-center mt-4">
+        <h4 class="mb-0">Total Carbs:</h4>
+        <p id="totalCarbs" class="fs-5 mb-0">0</p>
+    </div>
+
+    <div class="d-flex gap-2 text-center align-items-center justify-content-center mb-4">
+        <h4 class="mb-0">Insulin:</h4>
+        <p id="totalInsulin" class="fs-5 mb-0">0</p>
+    </div>
+
+    <div class="d-flex gap-2">
+        <button type="button" class="insulin-ratio-btn" data-value="5">5</button>
+        <button type="button" class="insulin-ratio-btn active" data-value="7.5">7.5</button>
+        <button type="button" class="insulin-ratio-btn" data-value="10">10</button>
+    </div>
+
+    <button type="button" id="reset" class="insulin-reset-btn">Reset</button>
+  </div>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Supabase CDN -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <!-- Main JS -->
+  <script src="main.js"></script>
 </body>
 </html>

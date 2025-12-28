@@ -1,0 +1,161 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+}
+
+body * {
+  color: #9C9C9C;
+}
+
+.container {
+  padding: 0 0;
+}
+
+.actions-btn,
+.home-btn {
+  color: #9C9C9C;
+  font-size: 28px;
+  width: fit-content;
+  font-weight: 400;
+  padding: 0 0;
+}
+
+.home-btn {
+  font-size: 22px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+#categoryAccordion .accordion-item {
+  border: none;
+  border-radius: 0px;
+}
+
+#categoryAccordion .accordion-item .accordion-header .accordion-button {
+  margin-bottom: 8px;
+  background-color: #D9D9D9;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0px;
+  padding: 8px 0;
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+  transition: all .25s ease;
+  font-size: 20px;
+}
+
+#categoryAccordion .accordion-item .accordion-header .accordion-button.collapsed {
+  background-color: white;
+  color: #9C9C9C;
+}
+
+#categoryAccordion .accordion-item .accordion-header .accordion-button:after {
+  margin-left: 8px;
+  background-image: none !important;
+  content: '\f078';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#categoryAccordion .accordion-item .accordion-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 8px 0;
+  text-align: center;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-button {
+  background-color: #FFFFFF;
+  transition: all .25s ease;
+  color: #9C9C9C;
+  font-size: 18px;
+  border: none;
+  border-radius: 0px;
+  margin-bottom: 4px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-button:last-of-type {
+  margin-bottom: 0px;
+}
+
+#categoryAccordion .accordion-item .accordion-body .carb-button:hover,
+#categoryAccordion .accordion-item .accordion-body .carb-button.active {
+  background-color: #FFE6F4;
+}
+
+.insulin-ratio-btn {
+  color: #9C9C9C;
+  background-color: #FFFFFF;
+  border: 2px solid #FFE6F4;
+  width: 33.33%;
+  font-size: 18px;
+  padding: .5rem;
+  transition: all .25s ease;
+}
+
+.insulin-ratio-btn:hover,
+.insulin-ratio-btn.active {
+  background-color: #FFE6F4;
+}
+
+.insulin-reset-btn {
+  color: #9C9C9C;
+  background-color: #FFE6F4;
+  border: 2px solid #FFE6F4;
+  width: 100%;
+  font-size: 18px;
+  padding: .5rem;
+  transition: all .25s ease;
+  margin-top: 8px;
+}
+
+.insulin-reset-btn:hover {
+  background-color: #FFFFFF;
+}
+
+.action-btn {
+  color: #9C9C9C;
+  background-color: #FFFFFF;
+  border: 2px solid #FFE6F4;
+  padding: 4px 8px;
+  transition: all .25s ease;
+}
+
+.action-btn:hover {
+  background-color: #FFE6F4;
+}
+
+select {
+  color: #000000;
+}
+
+select option {
+  color: #000000;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 0px;
+  border: 2px solid #FFE6F4;
+}
+
+.card .card-header {
+  background-color: #FFE6F4;
+  color: #9C9C9C;
+  border-radius: 0px;
+  border-bottom: 0px;
+}
+
+.card .card-body input,
+.card .card-body select {
+  border-radius: 0px;
+}

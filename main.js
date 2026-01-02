@@ -20,8 +20,7 @@ async function fetchCategories() {
     console.log("Fetching categories...");
     const { data, error } = await window.supabaseClient
       .from("categories")
-      .select("id, name")
-      .order("name", { ascending: true });
+      .select("id, name");
 
     if (error) {
       console.error("Error fetching categories:", error);

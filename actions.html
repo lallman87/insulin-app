@@ -23,10 +23,12 @@
       <a href="index.html" class="btn home-btn"><i class="fas fa-home"></i></a>
     </div>
 
+    <h4 class="mt-4 mb-0 fw-bold">Foods</h4>
+
     <div class="card mt-4">
       <div class="card-header d-flex align-items-center gap-2">
         <i class="fs-6 fas fa-plus"></i>
-        <h5 class="mb-0">Add New Item</h5>
+        <h5 class="mb-0">Add Item</h5>
       </div>
 
       <div class="card-body">
@@ -40,13 +42,7 @@
 
         <div class="mb-3">
           <select id="itemCategory" class="form-select">
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-            <option value="drinks">Drinks</option>
-            <option value="snacks">Snacks</option>
-            <option value="fruit">Fruit</option>
-            <option value="veggies">Veggies</option>
+            <option value="">Select a category</option>
           </select>
         </div>
 
@@ -77,13 +73,7 @@
 
         <div class="mb-3">
           <select id="updateCategory" class="form-select">
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-            <option value="drinks">Drinks</option>
-            <option value="snacks">Snacks</option>
-            <option value="fruit">Fruit</option>
-            <option value="veggies">Veggies</option>
+            <option value="">Select a category</option>
           </select>
         </div>
 
@@ -105,6 +95,61 @@
         </div>
 
         <button id="delete" class="action-btn d-flex align-items-center gap-2"><i class="fas fa-trash"></i><span>Delete Item</span></button>
+      </div>
+    </div>
+
+    <h4 class="mt-4 mb-0 fw-bold">Categories</h4>
+
+    <div class="card mt-4">
+      <div class="card-header d-flex align-items-center gap-2">
+        <i class="fs-6 fas fa-plus"></i>
+        <h5 class="mb-0">Add Category</h5>
+      </div>
+
+      <div class="card-body">
+        <div class="mb-3">
+          <input type="text" id="newCategoryName" class="form-control" placeholder="New category name">
+        </div>
+
+        <button id="addCategory" class="action-btn d-flex align-items-center gap-2"><i class="fas fa-plus"></i><span>Add Category</span></button>
+      </div>
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-header d-flex align-items-center gap-2">
+        <i class="fas fa-edit"></i>
+        <h5 class="mb-0">Update Category</h5>
+      </div>
+
+      <div class="card-body">
+        <div class="mb-3">
+          <select id="updateCategoryId" class="form-select">
+            <option value="">Select Category</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <input type="text" id="updateCategoryName" class="form-control" placeholder="New category name">
+        </div>
+
+        <button id="updateCategoryBtn" class="action-btn d-flex align-items-center gap-2"><i class="fas fa-sync"></i><span>Update Category</span></button>
+      </div>
+    </div>
+
+    <div class="card mt-4">
+      <div class="card-header d-flex align-items-center gap-2">
+        <i class="fas fa-trash"></i>
+        <h5 class="mb-0">Delete Category</h5>
+      </div>
+
+      <div class="card-body">
+        <div class="mb-3">
+          <select id="deleteCategoryId" class="form-select">
+            <option value="">Select Category</option>
+          </select>
+        </div>
+
+        <button id="deleteCategoryBtn" class="action-btn d-flex align-items-center gap-2"><i class="fas fa-trash"></i><span>Delete Category</span></button>
       </div>
     </div>
 
